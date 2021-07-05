@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+</head>
+<body style="background-color: #67f8bc;">
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center colortext">modificar colaboradores</h2>
+        </div>
+        <div class="row">
+            <form method="POST" action="#" id="formulario">
+                {%csrf_token%}
+                <div class="form-group">
+                    {{form.as_table}}
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-danger" id="modificar" value="Modificar">
+                    <input type="reset" class="btn btn-primary" id="limpiar" value="Limpiar">
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

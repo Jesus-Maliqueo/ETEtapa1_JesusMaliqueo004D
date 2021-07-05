@@ -1,0 +1,71 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+</head>
+<body style="background-color: #67f8bc;">
+    <section id="ingreso" class="page-section portada">
+        <div class="container">
+            <div class="text-center colortext" ><h2><b>Ingresar colaboradores</b></h2></div>
+            <form method="POST" name="Comentario" id="comentario" action="#">
+		        {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group  colortext">
+                            {{colabs_form.rut.label}}
+                            {{colabs_form.rut}} 
+                        </div><br><br>
+                        <div class="form-group colortext">
+                            {{colabs_form.foto}}
+                        </div><br><br>
+
+                        <div class="form-group colortext" >
+                            {{colabs_form.nombre.label}}
+                            {{colabs_form.nombre}}
+                        </div><br><br>
+
+                        <div class="form-group colortext">
+                            {{colabs_form.telefono.label}}
+                            {{colabs_form.telefono}}
+                        </div><br><br>
+
+                        <div class="form-group form-group-textarea colortext">
+                            {{colabs_form.direccion.label}}
+                            {{colabs_form.direccion}}
+                        </div>
+                        <br>
+                        <div class="form-group form-group-textarea colortext">
+                            {{colabs_form.email.label}}
+                            {{colabs_form.email}}
+                        </div>
+                        <br>
+                        <div class="form-group form-group-textarea colortext">
+                            {{colabs_form.pais.label}}
+                            {{colabs_form.pais}}
+                        </div>
+                        <br>
+                        <div class="form-group form-group-textarea colortext">
+                            {{colabs_form.contraseña}}
+
+                            <input type="button" name="generar" id="generar"  value="generar Contraseña" >
+                        </div>
+                        <br>
+                    </div>
+                  
+
+                </div><br><br>
+                <input type="submit"  class="botones" value="enviar" >
+                <input type="reset" class="botones"  value="limpiar">
+            </form>
+        </div>
+    </section>
+</body>
+</html>
+{% endblock %}

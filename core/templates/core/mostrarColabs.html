@@ -1,0 +1,61 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Document</title>
+</head>
+<body style="background-color: #67f8bc;">
+    <section style="margin-bottom: 500px; margin-top: 50px;">
+        <div class="container">
+            <div class="row">
+                <h2 class="text-center colortext" >Colaboradores de la pagina</h2>
+            </div>
+            <div class="container">
+                <table class="table" >
+                    <thead>
+                        <tr>
+                            <th scope="col">Rut</th>
+                            <th scope="col">Foto</th>
+                            <th scope="col">Nombre</th>
+                            <th score="col">Telefono</th>
+                            <th core="col">Direccion</th>
+                            <th core="col">Email</th>
+                            <th core="col">Pais</th>
+                            <th core="col">Contraseña</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for co in colabs%}
+                        <tr>
+                            <td>{{co.rut}}</th>
+                            <td><img src="{{co.foto}}" style="max-height:50px;max-width: 50px;"></th>
+                            <td>{{co.nombre}}</th>
+                            <td>{{co.telefono}}</th>
+                            <td>{{co.direccion}}</th>
+                            <td>{{co.email}}</td>
+                            <td>{{co.pais}}</td>
+                            <td>{{co.contraseña}}</td>
+                            <td><a href="{% url 'modificar' co.rut%}"
+                                class="btn btn-primary">Modificar</a></td>
+                            <td><a href="{% url 'eliminar' co.rut%}"
+                                class="btn btn-danger">Eliminar</a></td>
+                        </tr>
+                        {%endfor%}
+                        {% if colabs.foto %}
+                            <td><img src="{{co.foto.url}}" style="max-height:50px;max-width: 50px;"></th>
+                        {% endif %}
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+{% endblock %}

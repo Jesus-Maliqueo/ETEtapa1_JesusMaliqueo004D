@@ -1,0 +1,22 @@
+--creacion de usuario en sqldeveloper--
+alter session set "_ORACLE_SCRIPT"=true;
+create user etapa1 identified by 1234 default tablespace users temporary tablespace temp;
+grant connect, resource, create view to etapa1;
+alter user etapa1 quota unlimited on users;
+commit;
+ 
+--superuser--
+
+username: etapa1jm
+
+password: jazz123
+
+
+para acceder a index
+http://127.0.0.1:8000/
+
+para ingresar a formulario(ingresar)
+http://127.0.0.1:8000/ingresar
+
+para ingresar a tabla mostrar(MostrarColabs)
+http://127.0.0.1:8000/mostrar
